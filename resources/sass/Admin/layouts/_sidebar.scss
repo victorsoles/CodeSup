@@ -24,21 +24,17 @@
 body{
     height: 100vh;
     background: var(--body-color);
+    transition: var(--trans-04);
 }
 
-//----------------Simple CSS----------------
-.sidebar .text{
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--text-color);
+body.dark{
+    --body-color:#18191A;
+    --sidebar-color:#242526;
+    --primary-color:#3A3B3C;
+    --primary-color-ligth:#3A3B3C;
+    --toggle-color:#FFF;
+    --text-color:#CCC;
 }
-
-.sidebar .image{
-    min-width: 60px;
-    display: flex;
-    align-items: center;
-}
-
 
 //  ---------------Sidebar------------------
 .sidebar{
@@ -49,6 +45,60 @@ body{
     width: 250px;
     padding: 10px 14px;
     background: var(--sidebar-color);
+    transition: var(--trans-05);
+}
+
+.sidebar.close{
+    width: 88px;
+}
+
+//----------------Simple CSS----------------
+.sidebar .text{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: var(--trans-03);
+    white-space: nowrap;
+    opacity: 1;
+}
+
+.sidebar.close .text{
+    opacity: 0;
+}
+
+.sidebar .image{
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar li{
+    height: 50px;
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar li .icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    width: 20px;
+    height: 20px;
+    fill: var(--text-color);
+    transition: var(--trans-02);
+}
+
+.sidebar li .text{
+    color: var(--text-color);
+    transition: var(--trans-02);
+}
+
+.sidebar header{
+    position: relative;
 }
 
 .sidebar .image-text img{
@@ -73,3 +123,148 @@ header .image-text .header-text{
 .header-text .profession{
     margin-top: -2px;
 }
+
+.sidebar header .toggle{
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%) rotate(180deg);
+    height: 25px;
+    width: 25px;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    fill: var(--sidebar-color);
+    font-size: 22px;
+    transition: var(--trans-03);
+}
+
+.sidebar.close header .toggle{
+    transform: translateY(-50%);
+}
+
+body.dark .sidebar header .toggle{
+    transform: translateY(-50%) rotate(180deg);
+    fill: var(--text-color);
+}
+
+body.dark .sidebar.close header .toggle{
+    transform: translateY(-50%);
+}
+
+.sidebar li a{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--trans-04);
+}
+
+.sidebar li a:hover{
+    background: var(--primary-color);
+}
+
+.sidebar li a:hover .icon{
+    fill: var(--sidebar-color);
+}
+
+body.dark .sidebar li a:hover .icon{
+    fill: var(--text-color);
+}
+
+.sidebar li a:hover .text{
+    color: var(--sidebar-color);
+}
+
+body.dark .sidebar li a:hover .text{
+    color: var(--text-color);
+}
+
+.sidebar .menu-links{
+    padding-left: 0;
+}
+
+.sidebar .menu{
+    margin-top: 30px;
+}
+
+.sidebar .menu-bar{
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-bar .mode{
+    position: relative;
+    border-radius: 6px;
+    background: var(--primary-color-ligth);
+}
+
+.menu-bar .mode .moon-sun{
+    height: 50px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-bar .mode .i{
+    position: absolute;
+    transition: var(--trans-03);
+}
+
+.menu-bar .mode .sun{
+    opacity: 0;
+}
+
+body.dark .menu-bar .mode .sun{
+    opacity: 1;
+}
+
+body.dark .menu-bar .mode .moon{
+    opacity: 0;
+}
+
+.menu-bar .mode .toggle-switch{
+    position: absolute;
+    display: flex;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-width: 60px;
+    cursor: pointer;
+    border-radius: 6px;
+    background: var(--primary-color-ligth);
+}
+
+.toggle-switch .switch{
+    position: relative;
+    height: 20px;
+    width: 44px;
+    border-radius: 25px;
+    background: var(--toggle-color);
+}
+
+.switch::before {
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background: var(--sidebar-color);
+    transition: var(--trans-03);
+}
+
+body.dark .switch::before{
+    left: 24px;
+}
+
+
