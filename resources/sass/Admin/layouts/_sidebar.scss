@@ -79,6 +79,11 @@ body.dark{
     list-style: none;
     display: flex;
     align-items: center;
+
+    &.sub-menu{
+        height: 35px;
+        margin-top: 7px;
+    }
 }
 
 .sidebar li .icon{
@@ -166,6 +171,9 @@ body.dark .sidebar.close header .toggle{
 
 .sidebar li a:hover{
     background: var(--primary-color);
+    &.sub-menu{
+        background: var(--toggle-color);
+    }
 }
 
 .sidebar li a:hover .icon{
@@ -267,4 +275,24 @@ body.dark .switch::before{
     left: 24px;
 }
 
+.sidebar .menu-links .nav-link .dropdown{
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    transition: 0.3s ease;
+}
+
+
+.nav-link .dropdown.rotated {
+    transform: rotate(90deg);
+}
+
+.sub-link {
+    margin: 0;
+    display: none;
+}
+
+.sub-link.open {
+    display: block;
+}
 
