@@ -49,7 +49,6 @@
                         </li>
                     </ul>
 
-
                     <li class="nav-link">
                         <NavLink :href="route('inicio')">
                             <box-icon name='star' class="icon"></box-icon>
@@ -91,13 +90,11 @@
 
 <script>
     import NavLink from '@/Components/NavLink.vue';
-    import NavLi from '@/Components/NavLi.vue';
 
     export default {
         name: 'Sidebar',
         components: {
             NavLink,
-            NavLi
         },
         data() {
             return {
