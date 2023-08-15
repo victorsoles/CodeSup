@@ -26,7 +26,7 @@
                         </NavLink>
                     </li>
 
-                    <li class="nav-link">
+                    <li class="nav-link dropmenu">
                         <a @click.prevent="abreMenu">
                             <box-icon name='note' class="icon"></box-icon>
                             <span class="text nav-text">Anotações</span>
