@@ -2,14 +2,23 @@
     <Head title="Inicio" />
 
     <Layout>
-        <div>
-            <h2>Inicio</h2>
-        </div>
+        <Card class="mt-4">
+            <h2 class="text-muted">Bem vindo!</h2>
+        </Card>
     </Layout>
 </template>
 
-<script setup>
+<script>
+    import Card from '@/Components/Card.vue';
     import Layout from '@/Layouts/AdminLayout.vue';
+
+    export default {
+        name: 'inicio',
+        components: {
+            Card,
+            Layout
+        }
+    }
 
 </script>
 
