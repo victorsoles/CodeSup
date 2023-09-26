@@ -1,0 +1,18 @@
+.sidebar-aberta{
+    margin-left: 22%;
+}
+
+.no-gutter {
+   margin-right: 0 !important; /* Desativa a margem negativa */
+   margin-left: 0 !important;  /* Se necessário, desative também a margem à esquerda */
+}
+
+.custom-col-9 {
+    margin-left: 300px; /* Igual à largura da barra lateral */
+    transition: 0.5s ease;
+}
+
+.custom-col-11 {
+    margin-left: 100px; /* Maior que a largura da barra lateral */
+    transition: 0.5s ease;
+}

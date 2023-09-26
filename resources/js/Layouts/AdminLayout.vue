@@ -1,12 +1,12 @@
 <template>
-    <div class="row">
+    <div class="row no-gutter">
         <!-- Sidebar -->
         <div :class="{ 'col-md-3 transition-side': sidebarAberta, 'col-md-1 transition-side': !sidebarAberta }">
             <Sidebar @estadoSidebar="atualizarSidebar" />
         </div>
 
         <!-- Conteúdo principal -->
-        <div :class="{ 'col-md-9 transition-side': sidebarAberta, 'col-md-11 transition-side': !sidebarAberta }">
+        <div :class="{ 'col-md-9 transition-side custom-col-9': sidebarAberta, 'col-md-11 transition-side custom-col-11': !sidebarAberta }">
             <div class="content-wrapper">
                 <div class="container-xxl flex-grow-1 container-p-y">
                     <slot />
@@ -29,8 +29,5 @@
 </script>
 
 <style>
-.sidebar-aberta{
-    margin-left: 22%;
-}
 
 </style>
