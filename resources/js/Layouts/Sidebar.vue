@@ -12,7 +12,7 @@
                 </div>
             </div>
 
-            <box-icon name='chevron-right' class="toggle"></box-icon>
+            <box-icon @click="abreSidebar" name='chevron-right' class="toggle"></box-icon>
         </header>
 
         <div class="menu-bar">
@@ -98,12 +98,17 @@
         },
         data() {
             return {
-                menuAberto: false
+                menuAberto: false,
+                sidebarAberta: false
             }
         },
         methods: {
             abreMenu() {
                 this.menuAberto = !this.menuAberto;
+            },
+            abreSidebar() {
+                this.sidebarAberta = !this.sidebarAberta;
+                this.$emit('estadoSidebar', this.sidebarAberta);
             }
         },
         mounted(){
