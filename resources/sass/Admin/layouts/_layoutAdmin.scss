@@ -7,12 +7,27 @@
    margin-left: 0 !important;  /* Se necessário, desative também a margem à esquerda */
 }
 
-.custom-col-9 {
-    margin-left: 300px; /* Igual à largura da barra lateral */
-    transition: 0.5s ease;
-}
+/* sidebar.scss */
 
-.custom-col-11 {
-    margin-left: 100px; /* Maior que a largura da barra lateral */
-    transition: 0.5s ease;
+/* Estilo para resoluções menores que col-xl */
+@media (max-width: 1199.98px) {
+    .custom-col-9 {
+      margin-left: 0; /* Redefine a margem para 0 para resoluções menores */
+    }
+  }
+
+  /* Estilo para resoluções iguais ou maiores que col-xl */
+  @media (min-width: 1200px) {
+    .custom-col-9 {
+      margin-left: 300px; /* Aplica a margem apenas para col-xl */
+    }
+
+    .custom-col-11 {
+      margin-left: 100px; /* Aplica a margem apenas para col-xl */
+    }
+  }
+
+
+.transition-side{
+    transition: 0.4s ease;
 }

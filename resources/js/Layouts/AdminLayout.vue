@@ -1,33 +1,48 @@
 <template>
     <div class="row no-gutter">
         <!-- Sidebar -->
-        <div :class="{ 'col-md-3 transition-side': sidebarAberta, 'col-md-1 transition-side': !sidebarAberta }">
+        <div :class="sidebarClass">
             <Sidebar @estadoSidebar="atualizarSidebar" />
         </div>
 
         <!-- Conteúdo principal -->
-        <div :class="{ 'col-md-9 transition-side custom-col-9': sidebarAberta, 'col-md-11 transition-side custom-col-11': !sidebarAberta }">
+        <div :class="contentClass">
+            <Navbar />
             <div class="content-wrapper">
-                <div class="container-xxl flex-grow-1 container-p-y">
+                <div class="container-xxl flex-grow-1 p-0">
                     <slot />
                 </div>
             </div>
         </div>
     </div>
-</template>
+  </template>
 
-<script setup>
-    import Sidebar from '@/Layouts/Sidebar.vue';
-    import { ref } from 'vue';
+  <script setup>
+  import Sidebar from "@/Layouts/Sidebar.vue";
+  import Navbar from '@/Layouts/Navbar.vue';
+  import { ref, computed } from "vue";
 
-    const sidebarAberta = ref(false); // Inicialmente, a sidebar está fechada
+  const sidebarAberta = ref(false); // Inicialmente, a sidebar está fechada
 
-    const atualizarSidebar = (estado) => {
+  const atualizarSidebar = (estado) => {
     sidebarAberta.value = estado;
+  };
+
+  const sidebarClass = computed(() => {
+    return {
+      "d-none d-xl-block col-xl-3 transition-side": sidebarAberta.value,
+      "d-none d-xl-block col-xl-1 transition-side": !sidebarAberta.value,
     };
+  });
 
-</script>
+  const contentClass = computed(() => {
+    return {
+      "col-xl-9 col-md-12 transition-side custom-col-9": sidebarAberta.value,
+      "col-xl-11 col-md-12 transition-side custom-col-11": !sidebarAberta.value,
+    };
+  });
+  </script>
 
-<style>
-
-</style>
+  <style scoped>
+  /* Estilo personalizado pode ser adicionado aqui, se necessário */
+  </style>
