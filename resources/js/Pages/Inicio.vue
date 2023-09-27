@@ -1,9 +1,7 @@
 <template>
-    <Head title="Inicio" />
-
     <Layout>
-        <Card class="mt-4">
-            <h2 class="text-muted">Bem vindo!</h2>
+        <Card class="mt-4 col-md-12">
+            <h2 class="text-muted d-flex justify-content-center">Conteudo</h2>
         </Card>
     </Layout>
 </template>
@@ -13,7 +11,7 @@
     import Layout from '@/Layouts/AdminLayout.vue';
 
     export default {
-        name: 'inicio',
+        name: 'Navbar',
         components: {
             Card,
             Layout
