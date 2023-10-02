@@ -1,4 +1,4 @@
-<p align="center">CODSUP</p>
+<h2 align="center">CODSUP</h2>
 
 ## Sobre o Projeto
 
