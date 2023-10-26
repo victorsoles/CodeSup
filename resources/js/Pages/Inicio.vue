@@ -1,8 +1,20 @@
 <template>
+    <Head title="Inicio" />
+
     <Layout>
-        <Card class="mt-4 col-md-12">
-            <h2 class="text-muted d-flex justify-content-center">Conteudo</h2>
-        </Card>
+        <div class="row mt-4 g-3 justify-content-center">
+            <div class="col-6 col-sm-6 col-md-6">
+                <Card>
+                    <h2 class="text-muted d-flex justify-content-center">Conteudo</h2>
+                </Card>
+            </div>
+
+            <div class="col-6 col-sm-6 col-md-6">
+                <Card>
+                    <h2 class="text-muted d-flex justify-content-center">Conteudo</h2>
+                </Card>
+            </div>
+        </div>
     </Layout>
 </template>
 
