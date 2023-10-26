@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Anotacao;
-use App\Http\Requests\StoreAnotacaoRequest;
-use App\Http\Requests\UpdateAnotacaoRequest;
+use App\Http\Requests\StoreUpdateAnotacaoRequest;
 
-class AnotacaoController extends Controller
+class AnotacoesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,15 +20,15 @@ class AnotacaoController extends Controller
      */
     public function create()
     {
-        //
+        return inertia('Anotacoes/Create', []);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAnotacaoRequest $request)
+    public function store(StoreUpdateAnotacaoRequest $request)
     {
-        //
+        dd($request);
     }
 
     /**
@@ -51,7 +50,7 @@ class AnotacaoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateAnotacaoRequest $request, Anotacao $anotacao)
+    public function update(StoreUpdateAnotacaoRequest $request, Anotacao $anotacao)
     {
         //
     }
