@@ -11,7 +11,7 @@
             </div>
         </div>
 
-        <div class="card-body" v-show="dadosVisiveis">
+        <div class="card-body w-100" v-show="dadosVisiveis">
             <!-- Conteúdo do card -->
             <slot></slot>
         </div>

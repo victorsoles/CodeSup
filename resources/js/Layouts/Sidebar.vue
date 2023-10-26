@@ -12,7 +12,7 @@
                 </div>
             </div>
 
-            <box-icon name='chevron-right' class="toggle"></box-icon>
+            <box-icon @click="abreSidebar" name='chevron-right' class="toggle"></box-icon>
         </header>
 
         <div class="menu-bar">
@@ -36,13 +36,13 @@
 
                     <ul class="sub-link" :class="{ open: menuAberto }">
                         <li class="nav-link sub-menu">
-                            <NavLink :href="route('inicio')">
+                            <NavLink :href="route('anotacoes.create')">
                                 <box-icon name='plus-circle' class="icon"></box-icon>
                                 <span class="text nav-text">Nova</span>
                             </NavLink>
                         </li>
                         <li class="nav-link sub-menu">
-                            <NavLink :href="route('inicio')">
+                            <NavLink :href="route('anotacoes.index')">
                                 <box-icon name='list-ul' class="icon"></box-icon>
                                 <span class="text nav-text">Listar</span>
                             </NavLink>
@@ -98,12 +98,17 @@
         },
         data() {
             return {
-                menuAberto: false
+                menuAberto: false,
+                sidebarAberta: false
             }
         },
         methods: {
             abreMenu() {
                 this.menuAberto = !this.menuAberto;
+            },
+            abreSidebar() {
+                this.sidebarAberta = !this.sidebarAberta;
+                this.$emit('estadoSidebar', this.sidebarAberta);
             }
         },
         mounted(){

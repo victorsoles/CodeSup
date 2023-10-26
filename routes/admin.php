@@ -4,6 +4,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\{
+    AnotacoesController,
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +22,17 @@ use Inertia\Inertia;
 Route::get('/inicio', function () {
     return Inertia::render('Inicio');
 })->middleware(['auth', 'verified'])->name('inicio');
+
+
+// Anotações
+
+Route::controller(AnotacoesController::class)->group(function () {
+    Route::get('/anotacoes', 'index')->name('anotacoes.index');
+    Route::get('/anotacoes/nova', 'create')->name('anotacoes.create');
+    Route::get('/anotacoes/{anotacao}', 'show')->name('anotacoes.show');
+    Route::get('/anotacoes/editar/{anotacao}', 'edit')->name('anotacoes.edit');
+
+    Route::post('/anotacoes', 'store')->name('anotacoes.store');
+    Route::post('/anotacoes/{anotacao}', 'update')->name('anotacoes.update');
+    Route::delete('/anotacoes/{anotacao}', 'destroy')->name('anotacoes.destroy');
+});
