@@ -12,7 +12,9 @@ class AnotacoesController extends Controller
      */
     public function index()
     {
-        //
+        $anotacoes = Anotacao::all();
+
+        return inertia('Anotacoes/Index', ['anotacoes' => $anotacoes]);
     }
 
     /**
@@ -28,7 +30,14 @@ class AnotacoesController extends Controller
      */
     public function store(StoreUpdateAnotacaoRequest $request)
     {
-        dd($request);
+        $anotacao = new Anotacao([
+            'titulo' => $request->titulo,
+            'descricao' => $request->descricao
+        ]);
+
+        $anotacao->save();
+
+        return redirect()->route('anotacoes.show', $anotacao->id)->with(['mensagem' => ['success', 'Anotação salva com sucesso!']]);
     }
 
     /**
@@ -36,7 +45,7 @@ class AnotacoesController extends Controller
      */
     public function show(Anotacao $anotacao)
     {
-        //
+        return inertia('Anotacoes/Show', ['anotacao' => $anotacao]);
     }
 
     /**
@@ -60,6 +69,8 @@ class AnotacoesController extends Controller
      */
     public function destroy(Anotacao $anotacao)
     {
-        //
+        $anotacao->delete();
+
+        return redirect()->route('anotacoes.index')->with(['mensagem' => ['success', 'Anotação excluída com sucesso!']]);
     }
 }
