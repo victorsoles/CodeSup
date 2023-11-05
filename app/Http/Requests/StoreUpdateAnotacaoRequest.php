@@ -11,7 +11,7 @@ class StoreUpdateAnotacaoRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,8 @@ class StoreUpdateAnotacaoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'titulo'    => 'required|min:3|max:60',
+            'descricao' => 'required|min:3',
         ];
     }
 }
