@@ -52,7 +52,7 @@ export default {
     },
     methods: {
         formSubmit(){
-            this.form.sumit(this.metodo, this.rota, {
+            this.form.submit(this.metodo, this.rota, {
                 onSuccess: () => {
                     this.$emit('close');
                 }
